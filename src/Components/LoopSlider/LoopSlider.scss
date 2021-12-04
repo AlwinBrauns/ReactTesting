@@ -1,0 +1,61 @@
+.Slider {
+    *{
+      user-select: none;
+    }
+    $abstand: 0;
+    --spalten: 3;
+    position: relative;
+  
+    overflow-x: hidden;
+    overflow-y: hidden;
+    touch-action: none;
+    
+    display: flex;
+  
+    background-color: rebeccapurple;
+  
+    width: 600 + ($abstand * 3 * 2) + px;
+  
+    .arrow {
+      position: absolute;
+      z-index: 10;
+      width: 50px;
+      background-color: gray;
+      &:hover{
+        background-color: white;
+        cursor: pointer;
+      }
+      &.left {
+        left: 0;
+      }
+      &.right {
+        right: 0;
+      }
+    }
+  
+    .Slider-Element {
+      position: relative;
+  
+      text-align: center;
+  
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      justify-content: center;
+  
+      left: 0%;
+  
+      margin: $abstand + px;
+  
+      min-height: 200px;
+      min-width: 200px;
+  
+      background-color: palegoldenrod;
+  
+      .Slider-Element-Content {
+        width: 100px;
+        height: 50px;
+        background-color: green;
+      }
+    }
+  }

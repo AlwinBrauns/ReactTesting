@@ -1,0 +1,88 @@
+*{
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+}
+.App{
+  transition: all 0.3s ease-in-out;
+  background-color: chocolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &.dark{
+    background-color: gray;
+  }
+}
+
+.Fullsize-Window{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: black, $alpha: 0.9);
+  pointer-events: none;
+  z-index: 100;
+
+  .Ball{
+    position: absolute;
+    display: block;
+    pointer-events: all;
+    background: black;
+    $size: 200px;
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 5px 5px 10px rgba(black, 0.2);
+    background: radial-gradient(circle at $size $size, black, rebeccapurple);
+    
+    &::after{
+      content: 'Hallo 👋';
+      color: rebeccapurple;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      box-shadow: rebeccapurple 0px 0px 10px inset;
+      position: absolute;
+      border-radius: 100px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+
+    }
+    &:hover{
+      &::after{
+        opacity: 1;
+      }
+    }
+  }
+
+  .Shooter{
+    position: absolute;
+    $size: 100px;
+    width: $size;
+    height: $size;
+    border-bottom-right-radius: $size;
+    top: 0;
+    left: 0;
+    pointer-events: all;
+    user-select: none;
+    background-color: rebeccapurple;
+    box-shadow: 5px 5px 10px rgba(black, 0.2);
+    
+
+    &:hover{
+      cursor: pointer;
+      background-color: rgba(green, 0.9);
+    }
+  }
+}
