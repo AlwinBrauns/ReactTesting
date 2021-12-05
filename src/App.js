@@ -4,7 +4,7 @@ import LoopSlider from './Components/LoopSlider/LoopSlider';
 
 function App() {
 
-  const gravity = 9.81 / 4;
+  const gravity = 9.81;
   let blocked = false;
 
   const [{scale, x,y}, api]= useSpring({
@@ -48,7 +48,7 @@ function App() {
         if(goal.y>window.innerHeight-threshold){
           goal.y = window.innerHeight -threshold;
         }
-        currentTime += (stepsInMs/100);
+        currentTime += (stepsInMs/1000);
         console.log(currentTime)
         api.start(
           {
