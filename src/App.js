@@ -6,22 +6,24 @@ function App() {
 
   const gravity = 9.81;
   let blocked = false;
+  const startingY = window.innerHeight + 100;
+  const startingX = window.innerWidth + 100;
 
   const [{scale, x,y}, api]= useSpring({
     from: {
-    x: window.innerWidth,
-    y: window.innerHeight,
+    x: startingX,
+    y: startingY,
     scale: 1.0
     
   },}, []);
   
   const handleClick = (event) => {
-    let goal = {x: Math.random()*window.innerWidth/1.5, y: 0  }
+    let goal = {x: Math.random()*window.innerWidth/1.5, y: Math.random()*100  }
     api.start(
       {
         from: {
-          x: window.innerWidth,
-          y: window.innerHeight,
+          x: startingX,
+          y: startingY,
           scale: 0
 
         },
@@ -40,9 +42,9 @@ function App() {
       blocked = true;
       let currentTime = 0.0;
       let stepsInMs = 25;
-      let amountOfSteps = 50;
-      let friction = 100;
-      let threshold = 400;
+      let amountOfSteps = 70;
+      let friction = 80;
+      let threshold = 50;
       let intervall = setInterval(()=>{
         goal.y+= gravity * currentTime;
         if(goal.y>window.innerHeight-threshold){
@@ -88,6 +90,7 @@ function App() {
             handleClick(event)
           }}>Press Me!</div> 
           <animated.div style={{scale, x,y}} className="Ball">🎁</animated.div>
+        <div className="Water"></div>
       </div>
     </div>
   );

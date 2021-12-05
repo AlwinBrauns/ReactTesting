@@ -85,4 +85,15 @@
       background-color: rgba(green, 0.9);
     }
   }
+
+  .Water{
+    position: fixed;
+    width: 100%;
+    height: 200px;
+    bottom: 0;
+    background: url("./wave.svg") center center no-repeat;
+
+    background-size: 100% 100%;
+    z-index: 1099;
+  }
 }
